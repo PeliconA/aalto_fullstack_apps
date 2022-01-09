@@ -1,0 +1,34 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "id": "1"
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-532352532",
+      "id": "2"
+    },
+    {
+      "name": "Dan Abramov",
+      "number": "12-43-234345",
+      "id": "3"
+    },
+    {
+      "name": "Marry Poppendieck",
+      "number": "39-23-6423122",
+      "id": 4
+    },
+    {
+      "name": "Eva Šalamun Trojar",
+      "number": "040-758-884",
+      "id": 5
+    },
+    {
+      "name": "Andraž Pelicon",
+      "number": "031-468-663",
+      "id": 6
+    }
+  ]
+}

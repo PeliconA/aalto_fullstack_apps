@@ -1,83 +1,81 @@
 import React from 'react'
+import Course from './components/Course'
 
-const Header = (props) => {
-  /**
-   * Renders the header which contains the title of the course
+const Title = ({title}) => {
+    /**
+   * Renders the title of the webapp
    */
-    return[
-      <h1>{props.course}</h1>
-    ]
-  }
+  return (
+    <>
+      <h1>{title}</h1>
+    </>
+  )
+}
   
-  const Part = (props) => {
-    /**
-     * Renders a part of the course and associated number of excercises.
-     */
-    return [
-      <p>{props.part} {props.nr_exercises}</p>
-    ]
-  } 
-  
-  const Content = (props) => {
-    /**
-     * Renders each part of the course.
-     */
-    return (
-      <div>
-        <Part part={props.parts[0].name} nr_exercises={props.parts[0].exercises} />
-        <Part part={props.parts[1].name} nr_exercises={props.parts[1].exercises} />
-        <Part part={props.parts[2].name} nr_exercises={props.parts[2].exercises} /> 
-      </div>
-      )
-  }
-  
-  const Total = (props) => {
-    /** 
-     * Renders the total amount of exercises
-    */
+const App = () => {
+  /**
+   * Master component
+   */
 
-    return [
-      <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + 
-        props.parts[2].exercises}</p>
-    ]
-  }
-  
-  const App = () => {
-    /**
-     * Master component
-     */
-
-    const course = {
-      /** Contains the name of the course */
+  /** Contains the contents of the course 
+   * - name: name of the course
+   * - parts: array that contains the data for each part of the course.
+              Each part consists of a:
+                - name: name of a part
+                - excercises: number of exercises of a part
+  */
+  const courses = [
+    {
+      id: 1,
       name: 'Half Stack application development',
-      /** Array that contains the data for each part of the course.
-       * Each part consists of a:
-       *    - name: name of a part
-       *    - excercises: number of exercises of a part
-       */
       parts: [
         {
           name: 'Fundamentals of React',
-          exercises: 10
+          exercises: 10,
+          id: 1
         },
         {
           name: 'Using props to pass data',
-          exercises: 7
+          exercises: 7,
+          id: 2
         },
         {
           name: 'State of a component',
-          exercises: 14
+          exercises: 14,
+          id: 3
+        },
+        {
+          name: 'Redux',
+          exercises: 11,
+          id: 4
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: 'Node.js',
+      parts: [
+        {
+          name: 'Routing',
+          exercises: 3,
+          id: 1
+        },
+        {
+          name: 'Middlewares',
+          exercises: 7,
+          id: 2
         }
       ]
     }
-    
-    return (
-      <div>
-        <Header course={course.name} />
-        <Content parts={course.parts} />
-        <Total parts={course.parts} />
-      </div>
-    )
-  }
+  ]
+  
+  return (
+    <div>
+      <Title title='Web development curriculum' />
+      {courses.map(course => <Course key={course.id} name={course.name} 
+        parts={course.parts}/>)}
+    </div>
+  )
+}
 
   export default App
